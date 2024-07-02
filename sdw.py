@@ -1,13 +1,20 @@
 import psutil
 import os
+import time
 
-process_name = "vServer"
-pid = None
+def GetPid():
+    for proc in psutil.process_iter():
+        if (proc.name() == "vServer"):
+            return proc.pid
+    return -1
 
-for proc in psutil.process_iter():
-    print (proc)
-    if process_name in proc.name():
-       pid = proc.pid
-       break
-
-print("Pid:", pid)
+if os.geteuid() != 0:
+    os.system("sudo su")
+    os.system("cd ~")
+if __name__ == "__main__"():
+    while True == True:
+        if (GetPid() == -1):
+            os.system("cd Velneo-vServer")
+            os.system("./vServer.sh -s")
+            os.system("cd ~")
+        time.sleep(5)
