@@ -11,7 +11,7 @@ def GetPid():
 if os.geteuid() != 0:
     os.system("sudo su")
     os.system("cd ~")
-if __name__ == "__main__"():
+if (__name__ == "__main__"):
     while True == True:
         if (GetPid() == -1):
             os.system("cd Velneo-vServer")
