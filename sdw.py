@@ -4,17 +4,18 @@ import time
 
 def GetPid():
     for proc in psutil.process_iter():
+        print(proc)
         if (proc.name() == "vServer"):
             return proc.pid
     return -1
 
 if os.geteuid() != 0:
+    print("SUPE")
     os.system("sudo su")
-    os.system("cd ~")
 if (__name__ == "__main__"):
     while True == True:
         if (GetPid() == -1):
-            os.system("cd Velneo-vServer")
-            os.system("./vServer.sh -s")
-            os.system("cd ~")
+            print("FAFAFA")
+            os.system("./Velneo-vServer/vServer.sh -s")
         time.sleep(5)
+
