@@ -4,6 +4,7 @@ import time
 
 def GetPid():
     for proc in psutil.process_iter():
+        print(proc)
         if (proc.name() == "vServer"):
             return proc.pid
     return -1
@@ -14,9 +15,5 @@ def CheckServerStatus():
 
 if (__name__ == "__main__"):
     while True == True:
-        if os.geteuid() != 0:
-            os.system("sudo su")
-            CheckServerStatus()
-        else:
-            CheckServerStatus()
+        CheckServerStatus()
         time.sleep(5)
