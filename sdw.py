@@ -14,9 +14,6 @@ def CountHalfHour():
             timesStoped = 0
             localCounter = 0
             break
-        print(f"""
-    localCounter:{localCounter}
-            """)
 
 def GetPid():
     for proc in psutil.process_iter(): 
@@ -48,12 +45,12 @@ def CheckServerStatus():
             timesStoped = timesStoped + 1
             print("Encendiendo Servidor")
             os.system("sudo ./Velneo-vServer/vServer.sh -s")
-            print(f"""
-    timesStoped:{timesStoped}
-    check:{check}
-    counter:{counter}
-    tCount:{tCount}
-            """)
+    #         print(f"""
+    # timesStoped:{timesStoped}
+    # check:{check}
+    # counter:{counter}
+    # tCount:{tCount}
+    #         """)
         time.sleep(5)
 
 if (__name__ == "__main__"):
