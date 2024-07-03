@@ -14,7 +14,6 @@ def CountHalfHour():
             timesStoped = 0
             localCounter = 0
             break
-        print(localCounter)
 
 def GetPid():
     for proc in psutil.process_iter(): 
