@@ -20,7 +20,10 @@ def GetPid():
     for proc in psutil.process_iter(): 
         if (proc.name() == "vServer"):
             return proc.pid
-    print("Servidor no detectado/n Posiblemente no encendido")
+    print("""
+        Servidor no detectado
+        Posiblemente no encendido
+        """)
     return -1
 
 def CheckServerStatus():
@@ -42,7 +45,7 @@ def CheckServerStatus():
                 break
             timesStoped = timesStoped + 1
             print("Encendiendo Servidor")
-            os.system("sudo sh Velneo-vServer/vServer.sh -s")
+            os.system("sudo ./Velneo-vServer/vServer.sh -s")
         time.sleep(5)
 
 if (__name__ == "__main__"):
